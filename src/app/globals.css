@@ -109,8 +109,8 @@
 .section-heading {
   font-family: 'Quattrocento', serif;
   font-weight: 400;
-  letter-spacing: 0.1em;
-  color: #d4dbd3;
+  letter-spacing: 0.025em;
+  color: #e3ebe0;
 }
 
 /* Smooth transitions */
@@ -276,7 +276,7 @@ textarea:focus {
   }
 
   .section-heading {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 }
 

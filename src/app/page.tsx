@@ -310,7 +310,7 @@ export default function WeddingPage() {
         }}
       >
         <div className="text-center text-white/80 z-10 animate-fade-in">
-          <h1 className="hero-title text-6xl md:text-8xl mb-4">
+          <h1 className="hero-title text-5xl md:text-8xl mb-4">
             Krisadaporn <span className="text-5xl md:text-8xl">&</span> Pongtarin
           </h1>
           <h2 className="hero-subtitle text-xl md:text-4xl font-extralight tracking-widest mb-8 uppercase">
@@ -497,28 +497,27 @@ export default function WeddingPage() {
       )}
 
       {/* Our Story Section (reference layout) */}
-      <section id="story" className="py-24 px-8 bg-[#f5f5eb] animate-on-scroll">
+      <section id="story" className="py-24 px-8 bg-[#E7EFE3] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
           {/* Row: Left heading – Image – Right heading */}
-          <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
-            {/* Left title */}
-            <h2 className="hidden md:block text-center md:text-right font-heading uppercase tracking-wide text-2xl leading-tight text-[#5c645a]">
-              OUR LOVE
-              <br />FOR GARDENS
+          <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6">
+            {/* Left title (1st on mobile, 1st on desktop) */}
+            <h2 className="order-1 md:order-1 text-center md:text-right font-heading uppercase tracking-tight text-5xl md:text-5xl leading-tight text-[#5c645a]">
+              OUR LOVE STORY
             </h2>
 
-            {/* Center image */}
-            <div className="justify-self-center">
+            {/* Image (3rd on mobile, 2nd on desktop) */}
+            <div className="order-3 md:order-2 justify-self-center">
               <img
-                src="/our-story.jpg"               /* put your file in /public */
+                src="/our-story.jpg"
                 alt="Golf & Mo"
-                className="w-[340px] md:w-[420px] aspect-[3/4] object-cover shadow-md"
+                className="w-[300px] md:w-[420px] aspect-[3/4] object-cover"
               />
             </div>
 
-            {/* Right title */}
-            <h3 className="hidden md:block text-center md:text-left font-heading uppercase tracking-wide text-2xl leading-tight text-[#5c645a]">
-              (AND EACH OTHER)
+            {/* Right title (2nd on mobile, 3rd on desktop) */}
+            <h3 className="order-2 md:order-3 text-center md:text-left font-heading uppercase tracking-wide md:tracking-normal text-2xl md:text-5xl leading-tight md:text-[#5c645a] text-[#afc0ad]">
+              Reading into Love
             </h3>
           </div>
 
@@ -585,7 +584,28 @@ export default function WeddingPage() {
 
               <div>
                 <h3 className="font-heading text-xl text-[#5c645a] mb-2">Dress Code</h3>
-                <p className="font-mono font-light leading-7 text-stone-900/90">
+
+                {/* Color palette */}
+                <div
+                  className="mt-3 flex flex-wrap items-center gap-3"
+                  role="list"
+                  aria-label="Dress code color palette"
+                >
+                  {["#D7BCB5", "#C79989", "#B49576", "#F1EAD8", "#ABB38E", "#627055"].map(
+                    (hex) => (
+                      <span
+                        key={hex}
+                        role="listitem"
+                        title={hex}
+                        aria-label={hex}
+                        className="h-6 w-6 rounded-full ring-1 ring-black/15 shadow-sm"
+                        style={{ backgroundColor: hex }}
+                      />
+                    )
+                  )}
+                </div>
+
+                <p className="mt-4 font-mono font-light leading-7 text-stone-900/90">
                   Garden party chic! Flowy, breathable fabrics and comfortable shoes (heels are
                   optional, sinking in the grass is not required). Pastel colors are preferred
                   but not mandatory!
@@ -607,9 +627,9 @@ export default function WeddingPage() {
 
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-16 px-8 bg-stone-50 animate-on-scroll">
+      <section id="gallery" className="py-16 px-8 bg-[#b8bfaf] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-5xl text-center mb-12">Our Gallery</h2>
+          <h2 className="section-heading text-6xl uppercase md:text-6x1 text-center mb-12">Our Gallery</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {galleryImages.map((image, index) => (
@@ -676,19 +696,19 @@ export default function WeddingPage() {
       )}
 
       {/* Location & Directions Section */}
-      <section id="location" className="py-16 px-8 bg-white animate-on-scroll">
+      <section id="location" className="py-16 px-8 bg-[#E7EFE3] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-5xl italic text-center mb-12">Location & Directions</h2>
+          <h2 className="font-heading text-[#5c645a] text-5xl md:text-6xl uppercase text-center tracking-tight mb-10">Location & Directions</h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Venue Information */}
             <div>
-              <h3 className="text-3xl font-medium mb-6 text-stone-800">Sofitel Sukhumvit Bangkok</h3>
+              <h3 className="text-3xl font-mono mb-6 text-stone-800">Sofitel Sukhumvit Bangkok</h3>
               <div className="space-y-4 text-stone-600">
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">📍</span>
                   <div>
-                    <p className="font-medium">Address:</p>
+                    <p className="font-mono">Address:</p>
                     <p>123 Garden Boulevard<br />Manila, Philippines 1000</p>
                   </div>
                 </div>
@@ -696,7 +716,7 @@ export default function WeddingPage() {
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">🚗</span>
                   <div>
-                    <p className="font-medium">Parking:</p>
+                    <p className="font-mono">Parking:</p>
                     <p>Free on-site parking available with valet service. Additional street parking nearby.</p>
                   </div>
                 </div>
@@ -704,7 +724,7 @@ export default function WeddingPage() {
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">🚌</span>
                   <div>
-                    <p className="font-medium">Public Transport:</p>
+                    <p className="font-mono">Public Transport:</p>
                     <p>LRT Line 2 - Katipunan Station (10-minute walk)<br />Multiple bus routes available</p>
                   </div>
                 </div>
@@ -712,7 +732,7 @@ export default function WeddingPage() {
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">✈️</span>
                   <div>
-                    <p className="font-medium">From Airport:</p>
+                    <p className="font-mono">From Airport:</p>
                     <p>45 minutes by car from NAIA<br />Airport shuttle service available</p>
                   </div>
                 </div>
@@ -720,25 +740,19 @@ export default function WeddingPage() {
 
               <div className="mt-8 space-y-4">
                 <button
-                  onClick={() => window.open('https://maps.google.com/maps?q=Rizal+Park+Manila+Philippines', '_blank')}
-                  className="w-full bg-amber-800 text-white px-6 py-3 rounded-lg hover:bg-amber-900 transition-colors"
+                  onClick={() => window.open('https://maps.app.goo.gl/8eGEKEtQDyb2FqRJA', '_blank')}
+                  className="w-full bg-[#b8bfaf] text-white px-6 py-3 rounded-lg hover:bg-[#6F7369] transition-colors"
                 >
                   🗺️ Open in Google Maps
                 </button>
 
-                <button
-                  onClick={() => window.open('https://waze.com/ul?q=Rizal+Park+Manila', '_blank')}
-                  className="w-full border-2 border-amber-800 text-amber-800 px-6 py-3 rounded-lg hover:bg-amber-50 transition-colors"
-                >
-                  📱 Open in Waze
-                </button>
               </div>
             </div>
 
             {/* Interactive Map */}
             <div className="h-96 rounded-lg overflow-hidden shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.1847744053794!2d120.9777308!3d14.5777781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca21ac302be1%3A0x92dcca0b9407c7c2!2sRizal%20Park!5e0!3m2!1sen!2sph!4v1609459200000!5m2!1sen!2sph"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.6537440124985!2d100.55514561239282!3d13.739401186595504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ee677aa7f5b%3A0x98f7b56cc80c88cc!2sSofitel%20Bangkok%20Sukhumvit!5e0!3m2!1sen!2sth!4v1757950539162!5m2!1sen!2sth"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -771,39 +785,6 @@ export default function WeddingPage() {
                 <p className="text-sm">Call us at (123) 456-7890 if you need directions or assistance finding the venue.</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reception Section */}
-      <section id="reception" className="py-16 px-8 bg-stone-100 animate-on-scroll">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-5xl italic text-center mb-12">Reception</h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Reception Venue",
-                content: "Our reception will take place in The Sunroom at Rizal Gardens an open-air garden space. The celebration will be outdoors, so expect fresh air, soft grass, and lots of golden hour glow."
-              },
-              {
-                title: "Dress Code",
-                content: "Garden party chic! Flowy, breathable fabrics and comfortable shoes (heels are optional, sinking in the grass is not required). Pastel colors are preferred but not mandatory!"
-              },
-              {
-                title: "Parking & Directions",
-                content: "Free parking is available on-site, with designated areas for PWDs and senior guests. If you need special assistance or a drop-off closer to the garden entrance, let us know."
-              }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-lg shadow-sm hover-lift transition-all transform hover:scale-105"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <h3 className="text-2xl font-medium mb-4 text-stone-800">{item.title}</h3>
-                <p className="text-stone-600 leading-relaxed">{item.content}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
