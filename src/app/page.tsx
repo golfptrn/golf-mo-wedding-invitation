@@ -497,7 +497,7 @@ export default function WeddingPage() {
       )}
 
       {/* Our Story Section (reference layout) */}
-      <section id="story" className="py-24 px-8 bg-[#919988] animate-on-scroll">
+      <section id="story" className="py-24 px-8 bg-[#f5f5eb] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
           {/* Row: Left heading – Image – Right heading */}
           <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
