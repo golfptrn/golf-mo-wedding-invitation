@@ -227,7 +227,6 @@ export default function WeddingPage() {
                 ["Program", "program"],
                 ["Gallery", "gallery"],
                 ["Location", "location"],
-                ["Reception", "reception"],
                 ["Contact", "contact"],
               ].map(([label, id]) => (
                 <button
@@ -279,7 +278,6 @@ export default function WeddingPage() {
                 ["Program", "program"],
                 ["Gallery", "gallery"],
                 ["Location", "location"],
-                ["Reception", "reception"],
                 ["Contact", "contact"],
               ].map(([label, id]) => (
                 <button
@@ -310,10 +308,10 @@ export default function WeddingPage() {
         }}
       >
         <div className="text-center text-white/80 z-10 animate-fade-in">
-          <h1 className="hero-title text-5xl md:text-8xl mb-4">
-            Krisadaporn <span className="text-5xl md:text-8xl">&</span> Pongtarin
+          <h1 className="hero-title text-5xl md:text-6xl mb-3">
+            Krisadaporn <span className="text-5xl md:text-7xl">&</span> Pongtarin
           </h1>
-          <h2 className="hero-subtitle text-xl md:text-4xl font-extralight tracking-widest mb-8 uppercase">
+          <h2 className="hero-subtitle text-xl md:text-3xl font-extralight tracking-widest mb-8 uppercase">
             Are Getting Married
           </h2>
 
@@ -357,7 +355,7 @@ export default function WeddingPage() {
       {/* Countdown Section */}
       <section id="countdown" className="py-16 px-8 bg-[#b8bfaf] animate-on-scroll">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="section-heading text-5xl text-center mb-4 uppercase">Until We Say "I Do"</h2>
+          <h2 className="section-heading text-3xl text-center mb-4 uppercase">Until We Say "I Do"</h2>
           <p className="text-lg text-[#5c645a] mb-4">DECEMBER 14, 2025, 11:00 AM</p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-2xl mx-auto">
@@ -502,7 +500,7 @@ export default function WeddingPage() {
           {/* Row: Left heading – Image – Right heading */}
           <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6">
             {/* Left title (1st on mobile, 1st on desktop) */}
-            <h2 className="order-1 md:order-1 text-center md:text-right font-heading uppercase tracking-tight text-5xl md:text-5xl leading-tight text-[#5c645a]">
+            <h2 className="order-1 md:order-1 text-center md:text-right font-heading uppercase tracking-tight text-4xl md:text-4xl leading-tight text-[#5c645a]">
               OUR LOVE STORY
             </h2>
 
@@ -516,7 +514,7 @@ export default function WeddingPage() {
             </div>
 
             {/* Right title (2nd on mobile, 3rd on desktop) */}
-            <h3 className="order-2 md:order-3 text-center md:text-left font-heading uppercase tracking-wide md:tracking-normal text-2xl md:text-5xl leading-tight md:text-[#5c645a] text-[#afc0ad]">
+            <h3 className="order-2 md:order-3 text-center md:text-left font-heading uppercase tracking-wide md:tracking-normal text-2xl md:text-4xl leading-tight md:text-[#5c645a] text-[#afc0ad]">
               Reading into Love
             </h3>
           </div>
@@ -531,7 +529,7 @@ export default function WeddingPage() {
       </section>
 
       <section
-        id="hero"
+        id="divider"
         className="relative h-[50vh] flex items-center justify-center bg-cover bg-center"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/divider1.jpg')`,
@@ -544,16 +542,16 @@ export default function WeddingPage() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
           {/* Left: PROGRAM */}
           <div>
-            <h2 className="font-heading text-[#5c645a] text-5xl md:text-6xl tracking-tight mb-10">
+            <h2 className="font-heading text-[#5c645a] text-4xl md:text-5xl tracking-tight mb-10">
               PROGRAM
             </h2>
             <ul className="mt-6">
               {[
-                { time: "5:00 PM", title: "Welcome Photos & Cocktails" },
-                { time: "6:00 PM", title: "Dinner Program" },
-                { time: "7:00 PM", title: "Toasts & Speeches" },
-                { time: "8:00 PM", title: "Official Picture Taking" },
-                { time: "9:00 PM", title: "Open Bar & Dancing" },
+                { time: "11:00 AM", title: "Guests Arrive & Reception Opens" },
+                { time: "12:30 PM", title: "Here Come the Bride & Groom!" },
+                { time: "1:00 PM", title: "Warm Wishes & Toasts for the Couple" },
+                { time: "1:15 PM", title: "Group Photos & Happy Memories" },
+                { time: "1:30 PM", title: "Enjoy celebration!" },
               ].map((item, i) => (
                 <li
                   key={i}
@@ -568,7 +566,7 @@ export default function WeddingPage() {
 
           {/* Right: RECEPTION */}
           <div>
-            <h2 className="font-heading text-[#5c645a] text-5xl md:text-6xl tracking-tight mb-10">
+            <h2 className="font-heading text-[#5c645a] text-4xl md:text-5xl tracking-tight mb-10">
               RECEPTION
             </h2>
 
@@ -576,9 +574,10 @@ export default function WeddingPage() {
               <div>
                 <h3 className="font-heading text-xl text-[#5c645a] mb-2">Reception Venue</h3>
                 <p className="font-mono font-light leading-7 text-stone-900/90">
-                  Our reception will take place in The Sunroom at Rizal Gardens — an open-air
-                  garden space. The celebration will be outdoors, so expect fresh air, soft
-                  grass, and lots of golden hour glow.
+                  Our reception will take place in
+                  {" "} <strong className="font-mono font-semibold text-stone-900">
+                  The LE GRAND BALLROOM, 7th Floor </strong> {" "}
+                   — designed with an indoor garden atmosphere. Soft greenery, gentle lighting, and natural accents create a warm and welcoming garden-like setting within the ballroom.
                 </p>
               </div>
 
@@ -606,9 +605,9 @@ export default function WeddingPage() {
                 </div>
 
                 <p className="mt-4 font-mono font-light leading-7 text-stone-900/90">
-                  Garden party chic! Flowy, breathable fabrics and comfortable shoes (heels are
-                  optional, sinking in the grass is not required). Pastel colors are preferred
-                  but not mandatory!
+                  In keeping with the indoor garden setting, we kindly request guests 
+                  to dress in soft pastels and natural tones. These colors will enhance 
+                  the atmosphere and create a graceful harmony throughout the celebration.
                 </p>
               </div>
 
@@ -629,7 +628,7 @@ export default function WeddingPage() {
       {/* Gallery Section */}
       <section id="gallery" className="py-16 px-8 bg-[#b8bfaf] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-6xl uppercase md:text-6x1 text-center mb-12">Our Gallery</h2>
+          <h2 className="section-heading text-5xl uppercase md:text-5x1 text-center mb-12">Our Gallery</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {galleryImages.map((image, index) => (
@@ -698,7 +697,7 @@ export default function WeddingPage() {
       {/* Location & Directions Section */}
       <section id="location" className="py-16 px-8 bg-[#E7EFE3] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-heading text-[#5c645a] text-5xl md:text-6xl uppercase text-center tracking-tight mb-10">Location & Directions</h2>
+          <h2 className="font-heading text-[#5c645a] text-4xl md:text-5xl uppercase text-center tracking-tight mb-12">Location & Directions</h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Venue Information */}
@@ -709,7 +708,9 @@ export default function WeddingPage() {
                   <span className="text-amber-600 text-xl">📍</span>
                   <div>
                     <p className="font-mono">Address:</p>
-                    <p>123 Garden Boulevard<br />Manila, Philippines 1000</p>
+                    <p>189 Sukhumvit Road Soi 13-15,
+                      Klongtoey Nua, Wattana
+                      <br />10110 BANGKOK, Thailand</p>
                   </div>
                 </div>
 
@@ -717,7 +718,7 @@ export default function WeddingPage() {
                   <span className="text-amber-600 text-xl">🚗</span>
                   <div>
                     <p className="font-mono">Parking:</p>
-                    <p>Free on-site parking available with valet service. Additional street parking nearby.</p>
+                    <p>Free on-site indoor parking available.</p>
                   </div>
                 </div>
 
@@ -725,7 +726,8 @@ export default function WeddingPage() {
                   <span className="text-amber-600 text-xl">🚌</span>
                   <div>
                     <p className="font-mono">Public Transport:</p>
-                    <p>LRT Line 2 - Katipunan Station (10-minute walk)<br />Multiple bus routes available</p>
+                    <p>BTS Sukhumvit Line - Nana Station (5-minute walk)
+                      <br />Multiple bus routes available</p>
                   </div>
                 </div>
 
@@ -733,7 +735,10 @@ export default function WeddingPage() {
                   <span className="text-amber-600 text-xl">✈️</span>
                   <div>
                     <p className="font-mono">From Airport:</p>
-                    <p>45 minutes by car from NAIA<br />Airport shuttle service available</p>
+                    <p>45-min drive from Suvarnabhumi Airport, 
+                      <br />or taking Airport Link (ARL) to Phaya Thai Station. 
+                       Transfer to BTS Sukhumvit Line to Nana Station.
+                      </p>
                   </div>
                 </div>
               </div>
@@ -782,7 +787,7 @@ export default function WeddingPage() {
               <div className="text-center">
                 <span className="text-2xl mb-2 block">📱</span>
                 <p className="font-medium">Need Help?</p>
-                <p className="text-sm">Call us at (123) 456-7890 if you need directions or assistance finding the venue.</p>
+                <p className="text-sm">Call hotel at (+66) 2-126-9999 if you need directions or assistance finding the venue.</p>
               </div>
             </div>
           </div>
@@ -804,13 +809,11 @@ export default function WeddingPage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-8 bg-stone-800 text-white animate-on-scroll">
+      <section id="contact" className="py-12 px-8 bg-stone-800 text-white animate-on-scroll">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-serif italic mb-8">Contact Us</h2>
+          <h2 className="text-4xl font-serif italic mb-8">Our Appreciation</h2>
           <div className="space-y-4">
-            <p className="text-xl hover:text-amber-300 transition-colors cursor-pointer">(123) 456-7890</p>
-            <p className="text-xl hover:text-amber-300 transition-colors cursor-pointer">@reallygreatsite</p>
-            <p className="text-xl hover:text-amber-300 transition-colors cursor-pointer">hello@reallygreatsite.com</p>
+            <p className="text-xl hover:text-amber-300 transition-colors cursor-pointer">from Mo & Golf</p>
           </div>
         </div>
       </section>
