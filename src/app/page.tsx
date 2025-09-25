@@ -14,11 +14,11 @@ export default function WeddingPage() {
   });
   const [formData, setFormData] = useState({
     name: "",
+    nickname: "",
     email: "",
     attendance: "",
     guests: "1",
-    dietary: "",
-    message: ""
+    dietary: ""
   });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -120,9 +120,7 @@ export default function WeddingPage() {
       errors.name = "Name is required";
     }
 
-    if (!formData.email.trim()) {
-      errors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    if (formData.email.trim() && !/\S+@\S+\.\S+/.test(formData.email)) {
       errors.email = "Please enter a valid email address";
     }
 
@@ -137,29 +135,43 @@ export default function WeddingPage() {
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyrDCLMo8w7aB-AD_xe10R87NSaTTJWijet_GaUDhCircYQ38DyMGu78VlpAJktsfDQhg/exec"; // <-- your web app URL
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log("RSVP submitted:", formData);
-      alert("Thank you for your RSVP! We'll be in touch soon.");
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors", // GAS doesn't send CORS headers; we don't read the response
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          nickname: formData.nickname,
+          email: formData.email,
+          attendance: formData.attendance,
+          guests: formData.guests,
+          dietary: formData.dietary
+        }),
+      });
+
+      alert("Thank you for your RSVP! We’ve recorded your response.");
       setShowRsvpForm(false);
       setFormData({
         name: "",
+        nickname: "",
         email: "",
         attendance: "",
         guests: "1",
-        dietary: "",
-        message: ""
+        dietary: ""
       });
       setFormErrors({});
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong sending your RSVP. Please try again.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   // Handle input changes
@@ -388,24 +400,39 @@ export default function WeddingPage() {
       {showRsvpForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fade-in">
           <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4 transform animate-scale-in">
-            <h3 className="text-2xl font-serif text-center mb-6">RSVP for Mo & Golf</h3>
+            <h3 className="text-2xl font-mono text-center mb-6">RSVP for Our Wedding</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium mb-2">Full Name *</label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => handleInputChange('name', e.target.value)}
-                  className={`w-full p-2 border rounded-md transition-colors ${
-                    formErrors.name ? 'border-red-500' : 'border-gray-300 focus:border-amber-500'
-                  }`}
-                  required
-                />
-                {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                
+                <div className="sm:col-span-2">
+                  <label className="block text-sm font-medium mb-2">Full Name *</label>
+                  <input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange('name', e.target.value)}
+                    className={`w-full p-2 border rounded-md transition-colors ${
+                      formErrors.name ? 'border-red-500' : 'border-gray-300 focus:border-amber-500'
+                    }`}
+                    required
+                  />
+                  {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
+                </div>
+
+                <div className="">
+                  <label className="block text-sm font-medium mb-2">Nickname</label>
+                  <input
+                    type="text"
+                    value={formData.nickname}
+                    onChange={(e) => handleInputChange('nickname', e.target.value)}
+                    className="w-full p-2 border border-gray-300 rounded-md focus:border-amber-500 transition-colors
+                              placeholder:font-mono placeholder:font-light placeholder:text-stone-500"
+                    placeholder="(optional)"
+                  />
+                </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Email Address *</label>
+                <label className="block text-sm font-medium mb-2">Email Address (optional)</label>
                 <input
                   type="email"
                   value={formData.email}
@@ -413,7 +440,6 @@ export default function WeddingPage() {
                   className={`w-full p-2 border rounded-md transition-colors ${
                     formErrors.email ? 'border-red-500' : 'border-gray-300 focus:border-amber-500'
                   }`}
-                  required
                 />
                 {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
               </div>
@@ -459,16 +485,6 @@ export default function WeddingPage() {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Message for the Couple</label>
-                <textarea
-                  value={formData.message}
-                  onChange={(e) => handleInputChange('message', e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-md h-20 focus:border-amber-500 transition-colors"
-                  placeholder="Share your excitement or wishes!"
-                ></textarea>
-              </div>
-
               <div className="flex gap-4">
                 <button
                   type="submit"
@@ -476,7 +492,7 @@ export default function WeddingPage() {
                   className={`flex-1 px-4 py-2 rounded-md transition-colors ${
                     isSubmitting
                       ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-amber-800 text-white hover:bg-amber-900'
+                      : 'bg-[#5c645a] text-white hover:bg-[#9da79b]'
                   }`}
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit RSVP'}
@@ -514,8 +530,8 @@ export default function WeddingPage() {
             </div>
 
             {/* Right title (2nd on mobile, 3rd on desktop) */}
-            <h3 className="order-2 md:order-3 text-center md:text-left font-heading uppercase tracking-wide md:tracking-normal text-2xl md:text-4xl leading-tight md:text-[#5c645a] text-[#afc0ad]">
-              Reading into Love
+            <h3 className="order-2 md:order-3 text-center md:text-left font-heading uppercase tracking-tight md:tracking-normal text-2xl md:text-4xl leading-tight md:text-[#5c645a] text-[#afc0ad]">
+              #Reading Into Love
             </h3>
           </div>
 
@@ -572,17 +588,17 @@ export default function WeddingPage() {
 
             <div className="space-y-10">
               <div>
-                <h3 className="font-heading text-xl text-[#5c645a] mb-2">Reception Venue</h3>
+                <h3 className="font-heading text-2xl text-[#5c645a] mb-2">Reception Venue</h3>
                 <p className="font-mono font-light leading-7 text-stone-900/90">
-                  Our reception will take place in
+                  Reception will take place in
                   {" "} <strong className="font-mono font-semibold text-stone-900">
                   The LE GRAND BALLROOM, 7th Floor </strong> {" "}
-                   — designed with an indoor garden atmosphere. Soft greenery, gentle lighting, and natural accents create a warm and welcoming garden-like setting within the ballroom.
+                   — designed with an indoor garden atmosphere.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-heading text-xl text-[#5c645a] mb-2">Dress Code</h3>
+                <h3 className="font-heading text-2xl text-[#5c645a] mb-2">Dress Code</h3>
 
                 {/* Color palette */}
                 <div
@@ -606,13 +622,12 @@ export default function WeddingPage() {
 
                 <p className="mt-4 font-mono font-light leading-7 text-stone-900/90">
                   In keeping with the indoor garden setting, we kindly request guests 
-                  to dress in soft pastels and natural tones. These colors will enhance 
-                  the atmosphere and create a graceful harmony throughout the celebration.
+                  to dress in soft pastels and natural tones for a graceful harmony throughout the celebration.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-heading text-xl text-[#5c645a] mb-2">Parking & Directions</h3>
+                <h3 className="font-heading text-2xl text-[#5c645a] mb-2">Parking & Directions</h3>
                 <p className="font-mono font-light leading-7 text-stone-900/90">
                   Free parking is available on-site, with designated areas for PWDs and senior
                   guests. If you need special assistance or a drop-off closer to the garden
