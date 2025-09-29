@@ -22,6 +22,7 @@ export default function WeddingPage() {
   });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [lang, setLang] = useState<"en" | "th">("en");
 
   // Wedding date - December 14, 2025, 11:00 AM
   const weddingDate = new Date('2025-12-14T11:00:00').getTime();
@@ -50,6 +51,127 @@ export default function WeddingPage() {
     }
   ];
 
+  const copy = {
+    en: {
+      nav: { home: "Home", countdown: "Countdown", story: "Our Story", program: "Program", gallery: "Gallery", location: "Location"},
+      hero: { subtitle: "Are Getting Married", rsvp: "RSVP Here", loc: "Sofitel Bangkok Sukhumvit", date: "DECEMBER 14, 2025, 11:00 AM" },
+      rsvpForm: {heading: "RSVP for Our Wedding", 
+        fullName: "Full Name", nickName: "Nickname", email: "Email Address (optional)", 
+        attendQ: "Will you be attending?",
+        attHolder: "Please select", attOption1: "Yes, I'll be there!", attOption2: "Unfortunately, I can't make it",
+        guestQ: "Number of Guests",
+        dietQ: "Dietary Restrictions", dietPlaceholder: "Any allergies or dietary needs?",
+      },
+      buttons: {
+        submit: "Submit RSVP",
+        submitting: "Submitting...",
+        cancel: "Cancel"
+      },
+      countdown: {heading: `Until We Say "I Do"`, context: "We can't wait to celebrate with you!"},
+      units: { days: "Days", hours: "Hours", minutes: "Minutes", seconds: "Seconds" },
+      story: {heading: "OUR LOVE STORY", hashtag: "#Reading Into Love", 
+        context: "Reading was rain and library light. We were only classmates then—sharing notes, splitting late nights, learning each other’s pace. Months later, New Year’s Eve pulled us to London. Under Big Ben and a sky torn open by fireworks, we finally spoke without deadlines: life, old hopes, the brave idea of love. By midnight the city was a roar, and quietly, between us, something began."
+      },
+      program: {heading: "Program", 
+        program1: "Reception Opens",
+        program2: "Group Photos",
+        program3: "Celebration: International Buffet Lunch (served at tables)",
+        program4: "End of Celebration"
+      },
+      reception: {heading: "Reception", 
+        subtitle1:"Reception Venue", 
+        subtitle2:"Dress Code", 
+        subtitle3:"Parking", 
+        subContext1:"Reception will take place in", 
+        subContext2:"The LE GRAND BALLROOM, 7th Floor", 
+        subContext3:"Dress in soft pastels and natural tones for a harmony.", 
+        subContext4:"Free parking is available on-site.", 
+      },
+      location: {heading: "Location & Directions",
+        locName: "Sofitel Sukhumvit Bangkok",
+        title1: "Address",
+        context1: "189 Sukhumvit Road Soi 13-15,Klongtoey Nua, Wattana 10110 BANGKOK, Thailand",
+        title2: "Public Transport",
+        context2: "BTS Sukhumvit Line - Nana Station (5-minute walk)",
+        title3: "From Airport",
+        context3: "45-min drive from Suvarnabhumi Airport,",
+        context4: "or taking Airport Link (ARL) to Phaya Thai Station. Transfer to BTS Sukhumvit Line to Nana Station.",
+        button: "Open in Google Maps"
+      },
+      gallery: {heading: "Our Gallery", 
+
+
+      },
+      footer: {
+        message: "Your presence is truly the best gift we could ask for.",
+        from: "from Mo & Golf"
+      }
+    },
+    th: {
+      nav: { home: "หน้าแรก", countdown: "นับถอยหลัง", story: "เรื่องราวของเรา", program: "กำหนดการ", gallery: "แกลเลอรี", location: "สถานที่"},
+      hero: { subtitle: "กำลังจะแต่งงาน", rsvp: "ตอบรับคำเชิญ", loc: "โรงแรมโซฟิเทล กรุงเทพ สุขุมวิท", date: "14 ธันวาคม 2567, 11:00 น." },
+      rsvpForm: {heading: "ตอบรับคำเชิญเข้าร่วมงาน", 
+        fullName: "ชื่อ-นามสกุล", nickName: "ชื่อเล่น", email: "อีเมล (ไม่ระบุได้)", 
+        attendQ: "ประสงค์เข้าร่วมงานหรือไม่?",
+        attHolder: "โปรดเลือก", attOption1: "เข้าร่วมงาน", attOption2: "ไม่สามารถเข้าร่วมงานได้",
+        guestQ: "จำนวนผู้ร่วมงาน",
+        dietQ: "ข้อจำกัดด้านอาหาร", dietPlaceholder: "มีอาการแพ้หรือข้อจำกัดด้านอาหารใดหรือไม่?",
+      },
+      buttons: {
+        submit: "ส่งคำตอบรับ",
+        submitting: "กำลังส่ง...",
+        cancel: "ยกเลิก"
+      },
+      countdown: { heading: "นับถอยหลังสู่วันแต่งงาน", context: "แล้วพบกันในวันพิเศษของเรานะคะ/ครับ"},
+      units: { days: "วัน", hours: "ชั่วโมง", minutes: "นาที", seconds: "วินาที" },
+      story: {heading: "เรื่องราวความรักของเรา",  hashtag: "#Reading Into Love", 
+        context: "ณ รีดิง เมืองฝนโปรยและแสงไฟห้องสมุด พวกเราเป็นแค่เพื่อนร่วมชั้น ใช้เวลาอ่านหนังสือ แบ่งปันความเห็น พลางเรียนรู้จังหวะของกันและกันเรื่อยมา จนกระทั่งค่ำคืนปีใหม่ได้นำพาเราไปที่ลอนดอน ใต้เข็มนาฬิกาบิ้กเบนและท้องฟ้ายามค่ำคืนที่สว่างสไวไปด้วยสีสันแห่งพลุ ทางเดินและบทสนทนาอันไร้ขอบเขต -เรื่องชีวิต ความหวัง รวมถึงความรัก- ได้กลายเป็นความทรงจำอันแสนวิเศษ เวลาล่วงมาถึงเที่ยงคืน ณ ลอนดอนที่ดังสนั่นนั้น เงียบๆระหว่างเรา...เรื่องราวได้เริ่มต้นขึ้น"
+      },
+      program: {heading: "กำหนดการ",
+        program1: "เริ่มงานเลี้ยงต้อนรับ",
+        program2: "ถ่ายภาพร่วมกัน",
+        program3: "งานเลี้ยง: บุฟเฟ่ต์นานาชาติ (เสิร์ฟที่โต๊ะ)",
+        program4: "ปิดงาน"
+      },
+      reception: {heading: "รายละเอียดงานเลี้ยงฉลอง", 
+        subtitle1:"สถานที่จัดงาน", 
+        subtitle2:"การแต่งกาย", 
+        subtitle3:"ที่จอดรถ", 
+        subContext1:"งานเลี้ยงจัดขึ้นที่", 
+        subContext2:"ห้อง Le Grand Ballroom ชั้น 7", 
+        subContext3:"แนะนำโทนพาสเทลอ่อนและเฉดธรรมชาติ เพื่อความกลมกลืนของงาน", 
+        subContext4:"ที่จอดรถบริการฟรีภายในโรงแรม", 
+      },
+      location: {heading: "สถานที่ และเส้นทาง",
+        locName: "โรงแรมโซฟิเทล สุขุมวิท กรุงเทพฯ",
+        title1: "ที่อยู่",
+        context1: "189 ถนนสุขุมวิท ซอย 13-15 แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพฯ 10110 ประเทศไทย",
+        title2: "ขนส่งสาธารณะ",
+        context2: "รถไฟฟ้า BTS สายสุขุมวิท - สถานีนานา (เดินประมาณ 5 นาที)",
+        title3: "จากสนามบิน",
+        context3: "ขับรถประมาณ 45 นาทีจากท่าอากาศยานสุวรรณภูมิ",
+        context4: "หรือโดยสารแอร์พอร์ต เรล ลิงก์ (ARL) ไปสถานีพญาไท แล้วต่อ BTS สายสุขุมวิทไปสถานีนานา",
+        button: "เปิดใน Google Maps"
+      },
+      gallery: {heading: "แกลลอรี่", 
+
+
+      },
+      footer: {
+        message: "ตั้งหน้าตั้งตารอที่ได้ฉลองร่วมกันกับทุกคนนะคะ/ครับ",
+        from: "ด้วยรักจาก โม และ กอล์ฟ"
+      }
+    },
+    } as const;
+
+  const navItems = [
+    { label: copy[lang].nav.home, id: "hero" },
+    { label: copy[lang].nav.countdown, id: "countdown" },
+    { label: copy[lang].nav.story, id: "story" },
+    { label: copy[lang].nav.program, id: "program" },
+    { label: copy[lang].nav.gallery, id: "gallery" },
+    { label: copy[lang].nav.location, id: "location" }
+  ];  
 
   //Transparent to color navagation
   const [scrolled, setScrolled] = useState(false);
@@ -226,29 +348,40 @@ export default function WeddingPage() {
           {/* Top bar */}
           <div className="relative flex items-center justify-center h-14">
             {/* Brand – mobile only (hidden on md+) */}
-            <div className="md:hidden text-white/95 tracking-widest text-sm">
-              {/* You can remove this div entirely if you want no brand at all */}
+            <div className="md:hidden text-white/95 tracking-widest text-xs">
+              <button onClick={() => setLang("en")} className={lang === "en" ? "underline" : "opacity-80"}>EN</button>
+              <span className="opacity-60">|</span>
+              <button onClick={() => setLang("th")} className={lang === "th" ? "underline" : "opacity-80"}>TH</button>
             </div>
-
+            
             {/* Desktop links */}
             <div className="hidden md:flex justify-center gap-8">
-              {[
-                ["Home", "hero"],
-                ["Countdown", "countdown"],
-                ["Our Story", "story"],
-                ["Program", "program"],
-                ["Gallery", "gallery"],
-                ["Location", "location"],
-                ["Contact", "contact"],
-              ].map(([label, id]) => (
+              {navItems.map((item) => (
                 <button
-                  key={id}
-                  onClick={() => handleNav(id)}
+                  key={item.id}
+                  onClick={() => handleNav(item.id)}
                   className="text-white hover:text-stone-800 transition-colors"
                 >
-                  {label}
+                  {item.label}
                 </button>
               ))}
+            </div>
+            
+            <div className="hidden md:flex absolute right-0 inset-y-0 items-center pr-2">
+              <div className="flex items-center gap-2 rounded-md bg-white/10 px-2 py-1">
+                <button
+                  onClick={() => setLang("en")}
+                  className={`text-xs uppercase tracking-wide ${lang === "en" ? "text-black bg-white px-2 py-0.5 rounded" : "text-white/90"}`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLang("th")}
+                  className={`text-xs uppercase tracking-wide ${lang === "th" ? "text-black bg-white px-2 py-0.5 rounded" : "text-white/90"}`}
+                >
+                  TH
+                </button>
+              </div>
             </div>
 
             {/* Hamburger – mobile only, absolute bars (no wrapping) */}
@@ -283,21 +416,13 @@ export default function WeddingPage() {
             } transition-all duration-200`}
           >
             <div className="mx-2 mb-2 rounded-xl shadow-lg overflow-hidden bg-[#b8bfaf]/95 backdrop-blur-md border border-black/10">
-              {[
-                ["Home", "hero"],
-                ["Countdown", "countdown"],
-                ["Our Story", "story"],
-                ["Program", "program"],
-                ["Gallery", "gallery"],
-                ["Location", "location"],
-                ["Contact", "contact"],
-              ].map(([label, id]) => (
+              {navItems.map((item) => (
                 <button
-                  key={id}
-                  onClick={() => handleNav(id)}
+                  key={item.id}
+                  onClick={() => handleNav(item.id)}
                   className="w-full text-left px-5 py-3 text-stone-900 hover:bg-white/40 border-b border-black/10 last:border-b-0"
                 >
-                  {label}
+                  {item.label}
                 </button>
               ))}
             </div>
@@ -324,32 +449,32 @@ export default function WeddingPage() {
             Krisadaporn <span className="text-5xl md:text-7xl">&</span> Pongtarin
           </h1>
           <h2 className="hero-subtitle text-xl md:text-3xl font-extralight tracking-widest mb-8 uppercase">
-            Are Getting Married
+            {copy[lang].hero.subtitle}
           </h2>
 
           <button
             className="bg-transparent border border-white/80 text-white hover:bg-white hover:text-black px-8 py-3 text-lg font-light font-mono tracking-widest uppercase transition-all duration-300 transform hover:scale-105"
             onClick={() => setShowRsvpForm(!showRsvpForm)}
           >
-            RSVP Here
+            {copy[lang].hero.rsvp}
           </button>
         </div>
 
         {/* Desktop: left + right labels */}
         <div className="hidden md:block absolute bottom-8 left-8 text-white animate-fade-in-left">
-          <p className="text-lg font-mono">DECEMBER 14, 2025, 11:00 AM</p>
+          <p className="text-lg font-mono">{copy[lang].hero.date}</p>
         </div>
         <div className="hidden md:block absolute bottom-8 right-8 text-white animate-fade-in-right">
-          <p className="text-lg font-mono">SOFITEL BANGKOK SUKHUMVIT</p>
+          <p className="text-lg font-mono">{copy[lang].hero.loc}</p>
         </div>
 
         {/* Mobile: stack two centered lines above the arrow */}
         <div className="md:hidden absolute inset-x-0 bottom-12 px-4 text-white text-center space-y-1">
           <p className="text-xs font-mono font-light tracking-normal">
-            DECEMBER 14, 2025, 11:00 AM
+            {copy[lang].hero.date}
           </p>
           <p className="text-xs font-mono font-light tracking-normal">
-            SOFITEL BANGKOK SUKHUMVIT
+            {copy[lang].hero.loc}
           </p>
         </div>
 
@@ -367,32 +492,32 @@ export default function WeddingPage() {
       {/* Countdown Section */}
       <section id="countdown" className="py-16 px-8 bg-[#b8bfaf] animate-on-scroll">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="section-heading text-3xl text-center mb-4 uppercase">Until We Say "I Do"</h2>
-          <p className="text-lg text-[#5c645a] mb-4">DECEMBER 14, 2025, 11:00 AM</p>
+          <h2 className="section-heading text-3xl text-center mb-4 uppercase">{copy[lang].countdown.heading}</h2>
+          <p className="text-lg text-[#5c645a] mb-4">{copy[lang].hero.date}</p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-2xl mx-auto">
             <div className="p-4 transform hover:scale-105 transition-all">
               <div className="text-4xl md:text-5xl font-quat font-light text-[#5c645a] mb-2">{timeLeft.days}</div>
-              <div className="text-[#5c645a] uppercase tracking-wide text-sm">Days</div>
+              <div className="text-[#5c645a] uppercase tracking-wide text-sm">{copy[lang].units.days}</div>
             </div>
 
             <div className="p-4 transform hover:scale-105 transition-all">
               <div className="text-4xl md:text-5xl font-quat font-light text-[#5c645a] mb-2">{timeLeft.hours}</div>
-              <div className="text-[#5c645a] uppercase tracking-wide text-sm">Hours</div>
+              <div className="text-[#5c645a] uppercase tracking-wide text-sm">{copy[lang].units.hours}</div>
             </div>
 
             <div className="p-4 transform hover:scale-105 transition-all">
               <div className="text-4xl md:text-5xl font-quat font-light text-[#5c645a] mb-2">{timeLeft.minutes}</div>
-              <div className="text-[#5c645a] uppercase tracking-wide text-sm">Minutes</div>
+              <div className="text-[#5c645a] uppercase tracking-wide text-sm">{copy[lang].units.minutes}</div>
             </div>
 
             <div className="p-4 transform hover:scale-105 transition-all">
               <div className="text-4xl md:text-5xl font-quat font-light text-[#5c645a] mb-2">{timeLeft.seconds}</div>
-              <div className="text-[#5c645a] uppercase tracking-wide text-sm">Seconds</div>
+              <div className="text-[#5c645a] uppercase tracking-wide text-sm">{copy[lang].units.seconds}</div>
             </div>
           </div>
 
-          <p className="text-[#5c645a] mt-5 text-lg">We can't wait to celebrate with you!</p>
+          <p className="text-[#5c645a] mt-5 text-lg">{copy[lang].countdown.context}</p>
         </div>
       </section>
 
@@ -400,12 +525,12 @@ export default function WeddingPage() {
       {showRsvpForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fade-in">
           <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4 transform animate-scale-in">
-            <h3 className="text-2xl font-mono text-center mb-6">RSVP for Our Wedding</h3>
+            <h3 className="text-2xl font-mono text-center mb-6">{copy[lang].rsvpForm.heading}</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 
                 <div className="sm:col-span-2">
-                  <label className="block text-sm font-medium mb-2">Full Name *</label>
+                  <label className="block text-sm font-medium mb-2">{copy[lang].rsvpForm.fullName} *</label>
                   <input
                     type="text"
                     value={formData.name}
@@ -419,7 +544,7 @@ export default function WeddingPage() {
                 </div>
 
                 <div className="">
-                  <label className="block text-sm font-medium mb-2">Nickname</label>
+                  <label className="block text-sm font-medium mb-2">{copy[lang].rsvpForm.nickName}</label>
                   <input
                     type="text"
                     value={formData.nickname}
@@ -432,7 +557,7 @@ export default function WeddingPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Email Address (optional)</label>
+                <label className="block text-sm font-medium mb-2">{copy[lang].rsvpForm.email}</label>
                 <input
                   type="email"
                   value={formData.email}
@@ -445,7 +570,7 @@ export default function WeddingPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Will you be attending? *</label>
+                <label className="block text-sm font-medium mb-2">{copy[lang].rsvpForm.attendQ} *</label>
                 <select
                   value={formData.attendance}
                   onChange={(e) => handleInputChange('attendance', e.target.value)}
@@ -453,15 +578,15 @@ export default function WeddingPage() {
                     formErrors.attendance ? 'border-red-500' : 'border-gray-300 focus:border-amber-500'
                   }`}
                 >
-                  <option value="">Please select</option>
-                  <option value="yes">Yes, I'll be there!</option>
-                  <option value="no">Unfortunately, I can't make it</option>
+                  <option value="">{copy[lang].rsvpForm.attHolder}</option>
+                  <option value="yes">{copy[lang].rsvpForm.attOption1}</option>
+                  <option value="no">{copy[lang].rsvpForm.attOption2}</option>
                 </select>
                 {formErrors.attendance && <p className="text-red-500 text-sm mt-1">{formErrors.attendance}</p>}
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Number of Guests</label>
+                <label className="block text-sm font-medium mb-2">{copy[lang].rsvpForm.guestQ}</label>
                 <select
                   value={formData.guests}
                   onChange={(e) => handleInputChange('guests', e.target.value)}
@@ -475,13 +600,13 @@ export default function WeddingPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Dietary Restrictions</label>
+                <label className="block text-sm font-medium mb-2">{copy[lang].rsvpForm.dietQ}</label>
                 <input
                   type="text"
                   value={formData.dietary}
                   onChange={(e) => handleInputChange('dietary', e.target.value)}
                   className="w-full p-2 border border-gray-300 rounded-md focus:border-amber-500 transition-colors"
-                  placeholder="Any allergies or dietary needs?"
+                  placeholder={copy[lang].rsvpForm.dietPlaceholder}
                 />
               </div>
 
@@ -491,20 +616,24 @@ export default function WeddingPage() {
                   disabled={isSubmitting}
                   className={`flex-1 px-4 py-2 rounded-md transition-colors ${
                     isSubmitting
-                      ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-[#5c645a] text-white hover:bg-[#9da79b]'
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-[#5c645a] text-white hover:bg-[#9da79b]"
                   }`}
+                  aria-label={isSubmitting ? copy[lang].buttons.submitting : copy[lang].buttons.submit}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit RSVP'}
+                  {isSubmitting ? copy[lang].buttons.submitting : copy[lang].buttons.submit}
                 </button>
+
                 <button
                   type="button"
                   onClick={() => setShowRsvpForm(false)}
                   className="flex-1 border border-gray-300 hover:bg-gray-50 px-4 py-2 rounded-md transition-colors"
+                  aria-label={copy[lang].buttons.cancel}
                 >
-                  Cancel
+                  {copy[lang].buttons.cancel}
                 </button>
               </div>
+
             </form>
           </div>
         </div>
@@ -517,7 +646,7 @@ export default function WeddingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6">
             {/* Left title (1st on mobile, 1st on desktop) */}
             <h2 className="order-1 md:order-1 text-center md:text-right font-heading uppercase tracking-tight text-4xl md:text-4xl leading-tight text-[#5c645a]">
-              OUR LOVE STORY
+              {copy[lang].story.heading}
             </h2>
 
             {/* Image (3rd on mobile, 2nd on desktop) */}
@@ -530,16 +659,14 @@ export default function WeddingPage() {
             </div>
 
             {/* Right title (2nd on mobile, 3rd on desktop) */}
-            <h3 className="order-2 md:order-3 text-center md:text-left font-heading uppercase tracking-tight md:tracking-normal text-2xl md:text-4xl leading-tight md:text-[#5c645a] text-[#afc0ad]">
-              #Reading Into Love
+            <h3 className="hidden md:block order-2 md:order-3 text-center md:text-left font-heading uppercase tracking-tight md:tracking-normal text-2xl md:text-4xl leading-tight md:text-[#5c645a] text-[#afc0ad]">
+              {copy[lang].story.hashtag}
             </h3>
           </div>
 
             {/* Paragraph under everything */}
             <p className="mt-12 max-w-3xl mx-auto text-center text-stone-900/90 font-mono font-light text-base leading-7">
-              Write a paragraph that tells your story as a couple. You can include details like how you met,
-              your journey together, and what makes your relationship unique. This is your chance to share
-              your personality and connect with your guests.
+              {copy[lang].story.context}
             </p>
         </div>
       </section>
@@ -549,7 +676,7 @@ export default function WeddingPage() {
         className="relative h-[50vh] flex items-center justify-center bg-cover bg-center"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/divider1.jpg')`,
-          backgroundPosition: "75% 45%"
+          backgroundPosition: "75% 40%"
         }}
       >
       </section>
@@ -558,15 +685,15 @@ export default function WeddingPage() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
           {/* Left: PROGRAM */}
           <div>
-            <h2 className="font-heading text-[#5c645a] text-4xl md:text-5xl tracking-tight mb-10">
-              PROGRAM
+            <h2 className="font-heading text-[#5c645a] uppercase text-4xl md:text-5xl tracking-tight mb-10">
+              {copy[lang].program.heading}
             </h2>
             <ul className="mt-6">
               {[
-                { time: "10:30 AM", title: "Reception Opens" },
-                { time: "11:30 AM", title: "Group Photos" },
-                { time: "12:20 PM", title: "Celebration: International Buffet Lunch (served at tables)" },
-                { time: "2:00 PM", title: "End of Celebration" }
+                { time: "10:30 AM", title: copy[lang].program.program1 },
+                { time: "11:30 AM", title: copy[lang].program.program2 },
+                { time: "12:20 PM", title: copy[lang].program.program3 },
+                { time: "2:00 PM", title: copy[lang].program.program4 }
               ].map((item, i) => (
                 <li
                   key={i}
@@ -581,23 +708,23 @@ export default function WeddingPage() {
 
           {/* Right: RECEPTION */}
           <div>
-            <h2 className="font-heading text-[#5c645a] text-4xl md:text-5xl tracking-tight mb-10">
-              RECEPTION
+            <h2 className="font-heading text-[#5c645a] uppercase text-4xl md:text-5xl tracking-tight mb-10">
+              {copy[lang].reception.subtitle1}
             </h2>
 
             <div className="space-y-10">
               <div>
                 <h3 className="font-heading text-3xl text-[#5c645a] mb-2">Reception Venue</h3>
                 <p className="font-mono font-light leading-7 text-stone-900/90">
-                  Reception will take place in
+                  {copy[lang].reception.subContext1}
                   <br />
                   {" "} <strong className="font-mono font-semibold text-stone-900">
-                  The LE GRAND BALLROOM, 7th Floor </strong> {" "} 
+                  {copy[lang].reception.subContext2} </strong> {" "} 
                 </p>
               </div>
 
               <div>
-                <h3 className="font-heading text-3xl text-[#5c645a] mb-2">Dress Code</h3>
+                <h3 className="font-heading text-3xl text-[#5c645a] mb-2">{copy[lang].reception.subtitle2}</h3>
 
                 {/* Color palette */}
                 <div
@@ -620,15 +747,14 @@ export default function WeddingPage() {
                 </div>
 
                 <p className="mt-4 font-mono font-light leading-7 text-stone-900/90"> 
-                  Dress in soft pastels and natural tones for a graceful harmony.
+                  {copy[lang].reception.subContext3}
                 </p>
               </div>
 
               <div>
-                <h3 className="font-heading text-3xl text-[#5c645a] mb-2">Parking & Directions</h3>
+                <h3 className="font-heading text-3xl text-[#5c645a] mb-2">{copy[lang].reception.subtitle3}</h3>
                 <p className="font-mono font-light leading-7 text-stone-900/90">
-                  Free parking is available on-site, with designated areas for PWDs and senior
-                  guests.
+                  {copy[lang].reception.subContext4}
                 </p>
               </div>
             </div>
@@ -640,7 +766,7 @@ export default function WeddingPage() {
       {/* Gallery Section */}
       <section id="gallery" className="py-16 px-8 bg-[#b8bfaf] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-5xl uppercase md:text-5x1 text-center mb-12">Our Gallery</h2>
+          <h2 className="section-heading text-5xl uppercase md:text-5x1 text-center mb-12">{copy[lang].gallery.heading}</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {galleryImages.map((image, index) => (
@@ -709,47 +835,35 @@ export default function WeddingPage() {
       {/* Location & Directions Section */}
       <section id="location" className="py-16 px-8 bg-[#E7EFE3] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-heading text-[#5c645a] text-4xl md:text-5xl uppercase text-center tracking-tight mb-12">Location & Directions</h2>
+          <h2 className="font-heading text-[#5c645a] text-4xl md:text-5xl uppercase text-center tracking-tight mb-12">{copy[lang].location.heading}</h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Venue Information */}
             <div>
-              <h3 className="text-3xl font-mono mb-6 text-stone-800">Sofitel Sukhumvit Bangkok</h3>
+              <h3 className="text-3xl font-mono mb-6 text-stone-800">{copy[lang].location.locName}</h3>
               <div className="space-y-4 text-stone-600">
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">📍</span>
                   <div>
-                    <p className="font-mono">Address:</p>
-                    <p>189 Sukhumvit Road Soi 13-15,
-                      Klongtoey Nua, Wattana
-                      <br />10110 BANGKOK, Thailand</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <span className="text-amber-600 text-xl">🚗</span>
-                  <div>
-                    <p className="font-mono">Parking:</p>
-                    <p>Free on-site indoor parking available.</p>
+                    <p className="font-mono">{copy[lang].location.title1}:</p>
+                    <p>{copy[lang].location.context1}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">🚌</span>
                   <div>
-                    <p className="font-mono">Public Transport:</p>
-                    <p>BTS Sukhumvit Line - Nana Station (5-minute walk)
-                      <br />Multiple bus routes available</p>
+                    <p className="font-mono">{copy[lang].location.title2}:</p>
+                    <p>{copy[lang].location.context2}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">✈️</span>
                   <div>
-                    <p className="font-mono">From Airport:</p>
-                    <p>45-min drive from Suvarnabhumi Airport, 
-                      <br />or taking Airport Link (ARL) to Phaya Thai Station. 
-                       Transfer to BTS Sukhumvit Line to Nana Station.
+                    <p className="font-mono">{copy[lang].location.title3}:</p>
+                    <p>{copy[lang].location.context3} 
+                      <br />{copy[lang].location.context4}
                       </p>
                   </div>
                 </div>
@@ -760,7 +874,7 @@ export default function WeddingPage() {
                   onClick={() => window.open('https://maps.app.goo.gl/8eGEKEtQDyb2FqRJA', '_blank')}
                   className="w-full bg-[#b8bfaf] text-white px-6 py-3 rounded-lg hover:bg-[#6F7369] transition-colors"
                 >
-                  🗺️ Open in Google Maps
+                  🗺️ {copy[lang].location.button}
                 </button>
 
               </div>
@@ -784,26 +898,12 @@ export default function WeddingPage() {
         </div>
       </section>
 
-      {/* Gift Registry Section
-      <section className="py-16 px-8 bg-white animate-on-scroll">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-lg text-stone-600 leading-relaxed mb-8">
-            
-          </p>
-          <p className="text-stone-600 leading-relaxed">
-            But if you feel called to give a little something, we've put together a small registry with some of our
-            most wished-for items at Sining Spaces. Scan the QR on this page or send an email to hello@reallygreatsite.com
-            with the Registry No. 12345 as the subject line for our updated gift list.
-          </p>
-        </div>
-      </section> */}
-
       {/* Contact Section */}
       <section id="contact" className="py-12 px-8 bg-stone-800 text-white animate-on-scroll">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-serif italic mb-8">Your presence is truly the best gift we could ask for.</h2>
+          <h2 className="text-3xl font-serif italic mb-8">{copy[lang].footer.message}</h2>
           <div className="space-y-4">
-            <p className="text-xl hover:text-amber-300 transition-colors cursor-pointer">from Mo & Golf</p>
+            <p className="text-xl hover:text-amber-300 transition-colors cursor-pointer">{copy[lang].footer.from}</p>
           </div>
         </div>
       </section>
