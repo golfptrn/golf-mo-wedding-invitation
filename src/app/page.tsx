@@ -138,7 +138,7 @@ export default function WeddingPage() {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyrDCLMo8w7aB-AD_xe10R87NSaTTJWijet_GaUDhCircYQ38DyMGu78VlpAJktsfDQhg/exec"; // <-- your web app URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxuO_LxHGp8a6-Ki7yni5zWLDfUauxeEW4Z80_pO7oZP9sSGqqW5s_wjuk8LKoaFWPyMA/exec";
 
     try {
       await fetch(SCRIPT_URL, {
@@ -563,11 +563,10 @@ export default function WeddingPage() {
             </h2>
             <ul className="mt-6">
               {[
-                { time: "11:00 AM", title: "Guests Arrive & Reception Opens" },
-                { time: "12:30 PM", title: "Here Come the Bride & Groom!" },
-                { time: "1:00 PM", title: "Warm Wishes & Toasts for the Couple" },
-                { time: "1:15 PM", title: "Group Photos & Happy Memories" },
-                { time: "1:30 PM", title: "Enjoy celebration!" },
+                { time: "10:30 AM", title: "Reception Opens" },
+                { time: "11:30 AM", title: "Group Photos" },
+                { time: "12:20 PM", title: "Celebration: International Buffet Lunch (served at tables)" },
+                { time: "2:00 PM", title: "End of Celebration" }
               ].map((item, i) => (
                 <li
                   key={i}
@@ -588,17 +587,17 @@ export default function WeddingPage() {
 
             <div className="space-y-10">
               <div>
-                <h3 className="font-heading text-2xl text-[#5c645a] mb-2">Reception Venue</h3>
+                <h3 className="font-heading text-3xl text-[#5c645a] mb-2">Reception Venue</h3>
                 <p className="font-mono font-light leading-7 text-stone-900/90">
                   Reception will take place in
+                  <br />
                   {" "} <strong className="font-mono font-semibold text-stone-900">
-                  The LE GRAND BALLROOM, 7th Floor </strong> {" "}
-                   — designed with an indoor garden atmosphere.
+                  The LE GRAND BALLROOM, 7th Floor </strong> {" "} 
                 </p>
               </div>
 
               <div>
-                <h3 className="font-heading text-2xl text-[#5c645a] mb-2">Dress Code</h3>
+                <h3 className="font-heading text-3xl text-[#5c645a] mb-2">Dress Code</h3>
 
                 {/* Color palette */}
                 <div
@@ -620,18 +619,16 @@ export default function WeddingPage() {
                   )}
                 </div>
 
-                <p className="mt-4 font-mono font-light leading-7 text-stone-900/90">
-                  In keeping with the indoor garden setting, we kindly request guests 
-                  to dress in soft pastels and natural tones for a graceful harmony throughout the celebration.
+                <p className="mt-4 font-mono font-light leading-7 text-stone-900/90"> 
+                  Dress in soft pastels and natural tones for a graceful harmony.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-heading text-2xl text-[#5c645a] mb-2">Parking & Directions</h3>
+                <h3 className="font-heading text-3xl text-[#5c645a] mb-2">Parking & Directions</h3>
                 <p className="font-mono font-light leading-7 text-stone-900/90">
                   Free parking is available on-site, with designated areas for PWDs and senior
-                  guests. If you need special assistance or a drop-off closer to the garden
-                  entrance, let us know.
+                  guests.
                 </p>
               </div>
             </div>
@@ -784,36 +781,14 @@ export default function WeddingPage() {
             </div>
           </div>
 
-          <div className="mt-12 bg-amber-50 p-8 rounded-lg">
-            <h4 className="text-2xl font-medium mb-4 text-stone-800 text-center">Travel Tips</h4>
-            <div className="grid md:grid-cols-3 gap-6 text-stone-600">
-              <div className="text-center">
-                <span className="text-2xl mb-2 block">🕕</span>
-                <p className="font-medium">Arrive Early</p>
-                <p className="text-sm">We recommend arriving 15-30 minutes before the ceremony for photos and seating.</p>
-              </div>
-
-              <div className="text-center">
-                <span className="text-2xl mb-2 block">👗</span>
-                <p className="font-medium">Garden Setting</p>
-                <p className="text-sm">The venue has grass areas, so consider comfortable shoes and garden party attire.</p>
-              </div>
-
-              <div className="text-center">
-                <span className="text-2xl mb-2 block">📱</span>
-                <p className="font-medium">Need Help?</p>
-                <p className="text-sm">Call hotel at (+66) 2-126-9999 if you need directions or assistance finding the venue.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Gift Registry Section */}
+      {/* Gift Registry Section
       <section className="py-16 px-8 bg-white animate-on-scroll">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-lg text-stone-600 leading-relaxed mb-8">
-            Your presence is truly the best gift we could ask for.
+            
           </p>
           <p className="text-stone-600 leading-relaxed">
             But if you feel called to give a little something, we've put together a small registry with some of our
@@ -821,12 +796,12 @@ export default function WeddingPage() {
             with the Registry No. 12345 as the subject line for our updated gift list.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section id="contact" className="py-12 px-8 bg-stone-800 text-white animate-on-scroll">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-serif italic mb-8">Our Appreciation</h2>
+          <h2 className="text-4xl font-serif italic mb-8">Your presence is truly the best gift we could ask for.</h2>
           <div className="space-y-4">
             <p className="text-xl hover:text-amber-300 transition-colors cursor-pointer">from Mo & Golf</p>
           </div>
