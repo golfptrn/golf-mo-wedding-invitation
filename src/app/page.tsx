@@ -82,8 +82,8 @@ export default function WeddingPage() {
         subtitle1:"Reception Venue", 
         subtitle2:"Dress Code", 
         subtitle3:"Parking", 
-        subContext1:"Reception will take place in", 
-        subContext2:"The LE GRAND BALLROOM, 7th Floor", 
+        subContext1:"", 
+        subContext2:"The LE GRAND BALLROOM, 7th Floor @ Sofitel Bangkok Sukhumvit", 
         subContext3:"Dress in soft pastels and natural tones for a harmony.", 
         subContext4:"Free parking is available on-site.", 
       },
@@ -125,7 +125,7 @@ export default function WeddingPage() {
       countdown: { heading: "นับถอยหลังสู่วันแต่งงาน", context: "แล้วพบกันในวันพิเศษของเรานะคะ/ครับ"},
       units: { days: "วัน", hours: "ชั่วโมง", minutes: "นาที", seconds: "วินาที" },
       story: {heading: "เรื่องราวความรักของเรา",  hashtag: "#Reading Into Love", 
-        context: "จากเพื่อนร่วมชั้น สู่คู่ชีวิต เรื่องราวทั้งหมดเริ่มต้นขึ้นหลังจากพวกเราไปดูพลุในคืนปีใหม่ที่ลอนดอน ระหว่างรอดูพลุ เราได้ใข้ช่วงเวลาหลายชั่วโมงระหว่างรอเที่ยงคืนมาถึงคุยกันถึงเรื่องราวต่างๆในชีวิต และเมื่อถึงเวลาพลุดังมาถึง ตอนที่คนทั้งเมืองตะโกนเฮ สำหรับเรานี้เป็นช่วงเวลาที่เป็นจุดเริ่มต้นเรื่องราวของเรา..."
+        context: "จากเพื่อนร่วมชั้น สู่คู่ชีวิต เรื่องราวทั้งหมดเริ่มต้นขึ้นหลังจากพวกเราไปดูพลุในคืนปีใหม่ที่ลอนดอน ระหว่างรอดูพลุ เราได้ใช้ช่วงเวลาหลายชั่วโมงระหว่างรอเที่ยงคืนมาถึงคุยกันถึงเรื่องราวต่างๆในชีวิต และเมื่อถึงเวลาพลุดังมาถึง ตอนที่คนทั้งเมืองตะโกนเฮ สำหรับเรานี้เป็นช่วงเวลาที่เป็นจุดเริ่มต้นเรื่องราวของเรา..."
       },
       program: {heading: "กำหนดการ",
         program1: "เริ่มงานเลี้ยงต้อนรับ",
@@ -137,8 +137,8 @@ export default function WeddingPage() {
         subtitle1:"สถานที่จัดงาน", 
         subtitle2:"การแต่งกาย", 
         subtitle3:"ที่จอดรถ", 
-        subContext1:"งานเลี้ยงจัดขึ้นที่", 
-        subContext2:"ห้อง Le Grand Ballroom ชั้น 7", 
+        subContext1:"", 
+        subContext2:"ห้อง Le Grand Ballroom ชั้น 7 โงแรมโซฟิเทล กรุงเทพ สุขุมวิท", 
         subContext3:"แนะนำโทนพาสเทลอ่อนและเฉดธรรมชาติ เพื่อความกลมกลืนของงาน", 
         subContext4:"ที่จอดรถบริการฟรีภายในโรงแรม", 
       },
@@ -709,7 +709,7 @@ export default function WeddingPage() {
           {/* Right: RECEPTION */}
           <div>
             <h2 className={`font-heading text-[#5c645a] uppercase text-4xl md:text-5xl tracking-tight mb-10 ${lang === "en" ? "font-en" : "font-th"}`}>
-              {copy[lang].reception.subtitle1}
+              {copy[lang].reception.heading}
             </h2>
 
             <div className="space-y-10">
@@ -717,7 +717,6 @@ export default function WeddingPage() {
                 <h3 className={`font-heading text-3xl text-[#5c645a] mb-2 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].reception.subtitle1}</h3>
                 <p className={` font-light leading-7 text-stone-900/90 ${lang === "en" ? "font-en" : "font-th"}`}>
                   {copy[lang].reception.subContext1}
-                  <br />
                   {" "} <strong className={` font-semibold text-stone-900 ${lang === "en" ? "font-en" : "font-th"}`}>
                   {copy[lang].reception.subContext2} </strong> {" "} 
                 </p>
@@ -728,7 +727,7 @@ export default function WeddingPage() {
 
                 {/* Color palette */}
                 <div
-                  className="mt-3 flex flex-wrap items-center gap-3"
+                  className="mt-3 flex flex-wrap items-center gap-3 mb-3"
                   role="list"
                   aria-label="Dress code color palette"
                 >
