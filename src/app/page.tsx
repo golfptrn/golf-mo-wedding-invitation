@@ -445,7 +445,7 @@ export default function WeddingPage() {
         }}
       >
         <div className="text-center text-white/80 z-10 animate-fade-in">
-          <h1 className={`hero-title text-5xl md:text-6xl mb-3 ${lang === "en" ? "font-en" : "font-th"}`}>
+          <h1 className={`hero-title text-5xl md:text-6xl mb-3`}>
             Krisadaporn <span className="text-5xl md:text-7xl">&</span> Pongtarin
           </h1>
           <h2 className={`hero-subtitle text-xl md:text-3xl font-extralight tracking-widest mb-8 uppercas ${lang === "en" ? "font-en" : "font-th"}`}> 
@@ -453,7 +453,7 @@ export default function WeddingPage() {
           </h2>
 
           <button
-            className="bg-transparent border border-white/80 text-white hover:bg-white hover:text-black px-8 py-3 text-lg font-light font-mono tracking-widest uppercase transition-all duration-300 transform hover:scale-105"
+            className="bg-transparent border border-white/80 text-white hover:bg-white hover:text-black px-8 py-3 text-lg font-light  tracking-widest uppercase transition-all duration-300 transform hover:scale-105"
             onClick={() => setShowRsvpForm(!showRsvpForm)}
           >
             {copy[lang].hero.rsvp}
@@ -462,18 +462,18 @@ export default function WeddingPage() {
 
         {/* Desktop: left + right labels */}
         <div className="hidden md:block absolute bottom-8 left-8 text-white animate-fade-in-left">
-          <p className="text-lg font-mono">{copy[lang].hero.date}</p>
+          <p className="text-lg ">{copy[lang].hero.date}</p>
         </div>
         <div className="hidden md:block absolute bottom-8 right-8 text-white animate-fade-in-right">
-          <p className="text-lg font-mono">{copy[lang].hero.loc}</p>
+          <p className="text-lg ">{copy[lang].hero.loc}</p>
         </div>
 
         {/* Mobile: stack two centered lines above the arrow */}
         <div className="md:hidden absolute inset-x-0 bottom-12 px-4 text-white text-center space-y-1">
-          <p className="text-xs font-mono font-light tracking-normal">
+          <p className="text-xs  font-light tracking-normal">
             {copy[lang].hero.date}
           </p>
-          <p className="text-xs font-mono font-light tracking-normal">
+          <p className="text-xs  font-light tracking-normal">
             {copy[lang].hero.loc}
           </p>
         </div>
@@ -490,9 +490,9 @@ export default function WeddingPage() {
       </section>
 
       {/* Countdown Section */}
-      <section id="countdown" className="py-16 px-8 bg-[#b8bfaf] animate-on-scroll">
+      <section id="countdown" className={`py-16 px-8 bg-[#b8bfaf] animate-on-scroll ${lang === "en" ? "font-en" : "font-th"}`}>
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="section-heading text-3xl text-center mb-4 uppercase">{copy[lang].countdown.heading}</h2>
+          <h2 className={`section-heading text-3xl text-center mb-4 uppercase ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].countdown.heading}</h2>
           <p className="text-lg text-[#5c645a] mb-4">{copy[lang].hero.date}</p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-2xl mx-auto">
@@ -525,7 +525,7 @@ export default function WeddingPage() {
       {showRsvpForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fade-in">
           <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4 transform animate-scale-in">
-            <h3 className="text-2xl font-mono text-center mb-6">{copy[lang].rsvpForm.heading}</h3>
+            <h3 className="text-2xl  text-center mb-6">{copy[lang].rsvpForm.heading}</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 
@@ -550,7 +550,7 @@ export default function WeddingPage() {
                     value={formData.nickname}
                     onChange={(e) => handleInputChange('nickname', e.target.value)}
                     className="w-full p-2 border border-gray-300 rounded-md focus:border-amber-500 transition-colors
-                              placeholder:font-mono placeholder:font-light placeholder:text-stone-500"
+                              placeholder: placeholder:font-light placeholder:text-stone-500"
                     placeholder="(optional)"
                   />
                 </div>
@@ -645,7 +645,7 @@ export default function WeddingPage() {
           {/* Row: Left heading – Image – Right heading */}
           <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6">
             {/* Left title (1st on mobile, 1st on desktop) */}
-            <h2 className="order-1 md:order-1 text-center md:text-right font-heading uppercase tracking-tight text-4xl md:text-4xl leading-tight text-[#5c645a]">
+            <h2 className={`order-1 md:order-1 text-center md:text-right font-heading uppercase tracking-tight text-4xl md:text-4xl leading-tight text-[#5c645a] ${lang === "en" ? "font-en" : "font-th"}`}>
               {copy[lang].story.heading}
             </h2>
 
@@ -665,7 +665,7 @@ export default function WeddingPage() {
           </div>
 
             {/* Paragraph under everything */}
-            <p className="mt-12 max-w-3xl mx-auto text-center text-stone-900/90 font-mono font-light text-base leading-7">
+            <p className={`mt-12 max-w-3xl mx-auto text-center text-stone-900/90  font-light text-base leading-7 ${lang === "en" ? "font-en" : "font-th"}`}>
               {copy[lang].story.context}
             </p>
         </div>
@@ -685,7 +685,7 @@ export default function WeddingPage() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
           {/* Left: PROGRAM */}
           <div>
-            <h2 className="font-heading text-[#5c645a] uppercase text-4xl md:text-5xl tracking-tight mb-10">
+            <h2 className={`font-heading text-[#5c645a] uppercase text-4xl md:text-5xl tracking-tight mb-10 ${lang === "en" ? "font-en" : "font-th"}`}>
               {copy[lang].program.heading}
             </h2>
             <ul className="mt-6">
@@ -697,10 +697,10 @@ export default function WeddingPage() {
               ].map((item, i) => (
                 <li
                   key={i}
-                  className="grid grid-cols-[110px_1fr] items-center gap-8 py-6 border-b border-stone-500/60 border-dotted"
+                  className={`grid grid-cols-[110px_1fr] items-center gap-8 py-6 border-b border-stone-500/60 border-dotted ${lang === "en" ? "font-en" : "font-th"}`}
                 >
-                  <span className="font-mono font-light text-[#5c645a]">{item.time}</span>
-                  <span className="font-mono font-light text-[#5c645a]">{item.title}</span>
+                  <span className=" font-light text-[#5c645a]">{item.time}</span>
+                  <span className=" font-light text-[#5c645a]">{item.title}</span>
                 </li>
               ))}
             </ul>
@@ -715,10 +715,10 @@ export default function WeddingPage() {
             <div className="space-y-10">
               <div>
                 <h3 className="font-heading text-3xl text-[#5c645a] mb-2">Reception Venue</h3>
-                <p className="font-mono font-light leading-7 text-stone-900/90">
+                <p className={` font-light leading-7 text-stone-900/90 ${lang === "en" ? "font-en" : "font-th"}`}>
                   {copy[lang].reception.subContext1}
                   <br />
-                  {" "} <strong className="font-mono font-semibold text-stone-900">
+                  {" "} <strong className={` font-semibold text-stone-900 ${lang === "en" ? "font-en" : "font-th"}`}>
                   {copy[lang].reception.subContext2} </strong> {" "} 
                 </p>
               </div>
@@ -746,14 +746,14 @@ export default function WeddingPage() {
                   )}
                 </div>
 
-                <p className="mt-4 font-mono font-light leading-7 text-stone-900/90"> 
+                <p className={` font-light leading-7 text-stone-900/90 ${lang === "en" ? "font-en" : "font-th"}`}>
                   {copy[lang].reception.subContext3}
                 </p>
               </div>
 
               <div>
                 <h3 className={`font-heading text-3xl text-[#5c645a] mb-2 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].reception.subtitle3}</h3>
-                <p className="font-mono font-light leading-7 text-stone-900/90">
+                <p className={` font-light leading-7 text-stone-900/90 ${lang === "en" ? "font-en" : "font-th"}`}>
                   {copy[lang].reception.subContext4}
                 </p>
               </div>
@@ -766,7 +766,7 @@ export default function WeddingPage() {
       {/* Gallery Section */}
       <section id="gallery" className="py-16 px-8 bg-[#b8bfaf] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-heading text-5xl uppercase md:text-5x1 text-center mb-12">{copy[lang].gallery.heading}</h2>
+          <h2 className={`section-heading text-5xl uppercase md:text-5x1 text-center mb-12 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].gallery.heading}</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {galleryImages.map((image, index) => (
@@ -835,17 +835,17 @@ export default function WeddingPage() {
       {/* Location & Directions Section */}
       <section id="location" className="py-16 px-8 bg-[#E7EFE3] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-heading text-[#5c645a] text-4xl md:text-5xl uppercase text-center tracking-tight mb-12">{copy[lang].location.heading}</h2>
+          <h2 className={`font-heading text-[#5c645a] text-4xl md:text-5xl uppercase text-center tracking-tight mb-12 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].location.heading}</h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Venue Information */}
             <div>
-              <h3 className="text-3xl font-mono mb-6 text-stone-800">{copy[lang].location.locName}</h3>
+              <h3 className={`text-3xl  mb-6 text-stone-800 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].location.locName}</h3>
               <div className="space-y-4 text-stone-600">
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">📍</span>
                   <div>
-                    <p className="font-mono">{copy[lang].location.title1}:</p>
+                    <p className="font-th">{copy[lang].location.title1}:</p>
                     <p>{copy[lang].location.context1}</p>
                   </div>
                 </div>
@@ -853,7 +853,7 @@ export default function WeddingPage() {
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">🚌</span>
                   <div>
-                    <p className="font-mono">{copy[lang].location.title2}:</p>
+                    <p className="">{copy[lang].location.title2}:</p>
                     <p>{copy[lang].location.context2}</p>
                   </div>
                 </div>
@@ -861,7 +861,7 @@ export default function WeddingPage() {
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">✈️</span>
                   <div>
-                    <p className="font-mono">{copy[lang].location.title3}:</p>
+                    <p className="">{copy[lang].location.title3}:</p>
                     <p>{copy[lang].location.context3} 
                       <br />{copy[lang].location.context4}
                       </p>
@@ -901,7 +901,7 @@ export default function WeddingPage() {
       {/* Contact Section */}
       <section id="contact" className="py-12 px-8 bg-stone-800 text-white animate-on-scroll">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-serif italic mb-8">{copy[lang].footer.message}</h2>
+          <h2 className={`text-3xl font-serif italic mb-8 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].footer.message}</h2>
           <div className="space-y-4">
             <p className="text-xl hover:text-amber-300 transition-colors cursor-pointer">{copy[lang].footer.from}</p>
           </div>
