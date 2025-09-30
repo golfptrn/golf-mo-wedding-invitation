@@ -109,7 +109,7 @@ export default function WeddingPage() {
     },
     th: {
       nav: { home: "หน้าแรก", countdown: "นับถอยหลัง", story: "เรื่องราวของเรา", program: "กำหนดการ", gallery: "แกลเลอรี", location: "สถานที่"},
-      hero: { subtitle: "กำลังจะแต่งงาน", rsvp: "ตอบรับคำเชิญ", loc: "โรงแรมโซฟิเทล กรุงเทพ สุขุมวิท", date: "14 ธันวาคม 2567, 11:00 น." },
+      hero: { subtitle: "ขอเรียนเชิญร่วมงานแต่งของเรา", rsvp: "ตอบรับคำเชิญ", loc: "โรงแรมโซฟิเทล กรุงเทพ สุขุมวิท", date: "14 ธันวาคม 2567, 11:00 น." },
       rsvpForm: {heading: "ตอบรับคำเชิญเข้าร่วมงาน", 
         fullName: "ชื่อ-นามสกุล", nickName: "ชื่อเล่น", email: "อีเมล (ไม่ระบุได้)", 
         attendQ: "ประสงค์เข้าร่วมงานหรือไม่?",
@@ -335,7 +335,7 @@ export default function WeddingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`min-h-screen bg-white ${lang === "en" ? "font-en" : "font-th"}`}>
       {/* Navigation */}
       <nav
         className={`fixed top-0 inset-x-0 z-40 transition-colors duration-300 ${
@@ -445,10 +445,10 @@ export default function WeddingPage() {
         }}
       >
         <div className="text-center text-white/80 z-10 animate-fade-in">
-          <h1 className="hero-title text-5xl md:text-6xl mb-3">
+          <h1 className={`hero-title text-5xl md:text-6xl mb-3 ${lang === "en" ? "font-en" : "font-th"}`}>
             Krisadaporn <span className="text-5xl md:text-7xl">&</span> Pongtarin
           </h1>
-          <h2 className="hero-subtitle text-xl md:text-3xl font-extralight tracking-widest mb-8 uppercase">
+          <h2 className={`hero-subtitle text-xl md:text-3xl font-extralight tracking-widest mb-8 uppercas ${lang === "en" ? "font-en" : "font-th"}`}> 
             {copy[lang].hero.subtitle}
           </h2>
 
@@ -708,7 +708,7 @@ export default function WeddingPage() {
 
           {/* Right: RECEPTION */}
           <div>
-            <h2 className="font-heading text-[#5c645a] uppercase text-4xl md:text-5xl tracking-tight mb-10">
+            <h2 className={`font-heading text-[#5c645a] uppercase text-4xl md:text-5xl tracking-tight mb-10 ${lang === "en" ? "font-en" : "font-th"}`}>
               {copy[lang].reception.subtitle1}
             </h2>
 
@@ -724,7 +724,7 @@ export default function WeddingPage() {
               </div>
 
               <div>
-                <h3 className="font-heading text-3xl text-[#5c645a] mb-2">{copy[lang].reception.subtitle2}</h3>
+                <h3 className={`font-heading text-3xl text-[#5c645a] mb-2 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].reception.subtitle2}</h3>
 
                 {/* Color palette */}
                 <div
@@ -752,7 +752,7 @@ export default function WeddingPage() {
               </div>
 
               <div>
-                <h3 className="font-heading text-3xl text-[#5c645a] mb-2">{copy[lang].reception.subtitle3}</h3>
+                <h3 className={`font-heading text-3xl text-[#5c645a] mb-2 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].reception.subtitle3}</h3>
                 <p className="font-mono font-light leading-7 text-stone-900/90">
                   {copy[lang].reception.subContext4}
                 </p>
