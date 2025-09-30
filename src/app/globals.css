@@ -329,4 +329,5 @@ button:active {
 }
 .font-en {
   font-family: 'Playfair Display' !important;
+  letter-spacing: 0.04em;
 }

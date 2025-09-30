@@ -761,86 +761,16 @@ export default function WeddingPage() {
         </div>
       </section>
 
-
-      {/* Gallery Section */}
-      <section id="gallery" className="py-16 px-8 bg-[#b8bfaf] animate-on-scroll">
-        <div className="max-w-6xl mx-auto">
-          <h2 className={`section-heading text-5xl uppercase md:text-5x1 text-center mb-12 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].gallery.heading}</h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {galleryImages.map((image, index) => (
-              <div
-                key={index}
-                className="relative overflow-hidden rounded-lg shadow-md cursor-pointer transform hover:scale-105 transition-all duration-300"
-                onClick={() => {
-                  setSelectedImage(index);
-                  setShowGallery(true);
-                }}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <span className="text-white text-2xl opacity-0 hover:opacity-100 transition-opacity">+</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Modal */}
-      {showGallery && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 animate-fade-in">
-          <div className="max-w-4xl max-h-4xl mx-4">
-            <div className="relative">
-              <img
-                src={galleryImages[selectedImage].src}
-                alt={galleryImages[selectedImage].alt}
-                className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
-              />
-              <p className="text-white text-center mt-4 text-lg">
-                {galleryImages[selectedImage].caption}
-              </p>
-
-              {/* Navigation */}
-              <button
-                onClick={() => setSelectedImage(prev => prev > 0 ? prev - 1 : galleryImages.length - 1)}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-amber-300 transition-colors"
-              >
-                ‹
-              </button>
-              <button
-                onClick={() => setSelectedImage(prev => prev < galleryImages.length - 1 ? prev + 1 : 0)}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-amber-300 transition-colors"
-              >
-                ›
-              </button>
-
-              {/* Close button */}
-              <button
-                onClick={() => setShowGallery(false)}
-                className="absolute top-4 right-4 text-white text-2xl hover:text-amber-300 transition-colors"
-              >
-                ×
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Location & Directions Section */}
-      <section id="location" className="py-16 px-8 bg-[#E7EFE3] animate-on-scroll">
+      <section id="location" className="py-16 px-8 bg-[#acb1a5] animate-on-scroll">
         <div className="max-w-6xl mx-auto">
-          <h2 className={`font-heading text-[#5c645a] text-4xl md:text-5xl uppercase text-center tracking-tight mb-12 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].location.heading}</h2>
+          <h2 className={`font-heading text-[#f4f8f1] text-4xl md:text-5xl uppercase text-center tracking-tight mb-12 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].location.heading}</h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Venue Information */}
             <div>
-              <h3 className={`text-3xl  mb-6 text-stone-800 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].location.locName}</h3>
-              <div className="space-y-4 text-stone-600">
+              <h3 className={`text-3xl mb-6 text-[#f4f8f1] ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].location.locName}</h3>
+              <div className="space-y-4 text-[#f4f8f1]">
                 <div className="flex items-start gap-3">
                   <span className="text-amber-600 text-xl">📍</span>
                   <div>
@@ -871,7 +801,7 @@ export default function WeddingPage() {
               <div className="mt-8 space-y-4">
                 <button
                   onClick={() => window.open('https://maps.app.goo.gl/8eGEKEtQDyb2FqRJA', '_blank')}
-                  className="w-full bg-[#b8bfaf] text-white px-6 py-3 rounded-lg hover:bg-[#6F7369] transition-colors"
+                  className="w-full bg-[#E7EFE3] text-stone-600 px-6 py-3 rounded-lg hover:bg-[#6F7369] hover:text-white transition-colors"
                 >
                   🗺️ {copy[lang].location.button}
                 </button>
