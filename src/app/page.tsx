@@ -714,7 +714,7 @@ export default function WeddingPage() {
 
             <div className="space-y-10">
               <div>
-                <h3 className="font-heading text-3xl text-[#5c645a] mb-2">Reception Venue</h3>
+                <h3 className={`font-heading text-3xl text-[#5c645a] mb-2 ${lang === "en" ? "font-en" : "font-th"}`}>{copy[lang].reception.subtitle1}</h3>
                 <p className={` font-light leading-7 text-stone-900/90 ${lang === "en" ? "font-en" : "font-th"}`}>
                   {copy[lang].reception.subContext1}
                   <br />
