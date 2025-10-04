@@ -28,32 +28,34 @@ export default function WeddingPage() {
   const weddingDate = new Date('2025-12-14T11:00:00').getTime();
 
   // Gallery images
-  const galleryImages = [
-    {
-      src: "https://ext.same-assets.com/1150350535/8293315.jpeg",
-      alt: "Golf and Mo engagement photo",
-      caption: "Our engagement in the gardens"
-    },
-    {
-      src: "https://ext.same-assets.com/1150350535/100577191.jpeg",
-      alt: "Romantic rose photo",
-      caption: "Love blooms like roses"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&h=600&fit=crop",
-      alt: "Wedding preparation",
-      caption: "Getting ready for our special day"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
-      alt: "Sofitel Sukhumvit Bangkok",
-      caption: "3rd floor & 11th floor"
-    }
-  ];
+  // const galleryImages = [
+  //   {
+  //     src: "https://ext.same-assets.com/1150350535/8293315.jpeg",
+  //     alt: "Golf and Mo engagement photo",
+  //     caption: "Our engagement in the gardens"
+  //   },
+  //   {
+  //     src: "https://ext.same-assets.com/1150350535/100577191.jpeg",
+  //     alt: "Romantic rose photo",
+  //     caption: "Love blooms like roses"
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&h=600&fit=crop",
+  //     alt: "Wedding preparation",
+  //     caption: "Getting ready for our special day"
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
+  //     alt: "Sofitel Sukhumvit Bangkok",
+  //     caption: "3rd floor & 11th floor"
+  //   }
+  // ];
 
   const copy = {
     en: {
-      nav: { home: "Home", countdown: "Countdown", story: "Our Story", program: "Program", gallery: "Gallery", location: "Location"},
+      nav: { home: "Home", countdown: "Countdown", story: "Our Story", program: "Program",
+        //  gallery: "Gallery", 
+         location: "Location"},
       hero: { subtitle: "Are Getting Married", rsvp: "RSVP Here", loc: "Sofitel Bangkok Sukhumvit", date: "DECEMBER 14, 2025, 11:00 AM" },
       rsvpForm: {heading: "RSVP for Our Wedding", 
         fullName: "Full Name", nickName: "Nickname", email: "Email Address (optional)", 
@@ -98,17 +100,17 @@ export default function WeddingPage() {
         context4: "or taking Airport Link (ARL) to Phaya Thai Station. Transfer to BTS Sukhumvit Line to Nana Station.",
         button: "Open in Google Maps"
       },
-      gallery: {heading: "Our Gallery", 
-
-
-      },
+      // gallery: {heading: "Our Gallery", 
+      // },
       footer: {
         message: "Your presence is truly the best gift we could ask for.",
         from: "from Mo & Golf"
       }
     },
     th: {
-      nav: { home: "หน้าแรก", countdown: "นับถอยหลัง", story: "เรื่องราวของเรา", program: "กำหนดการ", gallery: "แกลเลอรี", location: "สถานที่"},
+      nav: { home: "หน้าแรก", countdown: "นับถอยหลัง", story: "เรื่องราวของเรา", program: "กำหนดการ", 
+        // gallery: "แกลเลอรี", 
+        location: "สถานที่"},
       hero: { subtitle: "ขอเรียนเชิญร่วมงานแต่งของเรา", rsvp: "ตอบรับคำเชิญ", loc: "โรงแรมโซฟิเทล กรุงเทพ สุขุมวิท", date: "14 ธันวาคม 2567, 11:00 น." },
       rsvpForm: {heading: "ตอบรับคำเชิญเข้าร่วมงาน", 
         fullName: "ชื่อ-นามสกุล", nickName: "ชื่อเล่น", email: "อีเมล (ไม่ระบุได้)", 
@@ -153,10 +155,8 @@ export default function WeddingPage() {
         context4: "หรือโดยสารแอร์พอร์ต เรล ลิงก์ (ARL) ไปสถานีพญาไท แล้วต่อ BTS สายสุขุมวิทไปสถานีนานา",
         button: "เปิดใน Google Maps"
       },
-      gallery: {heading: "แกลลอรี่", 
-
-
-      },
+      // gallery: {heading: "แกลลอรี่", 
+      // },
       footer: {
         message: "ตั้งหน้าตั้งตารอที่ได้ฉลองร่วมกันกับทุกคนนะคะ/ครับ",
         from: "ด้วยรักจาก โม และ กอล์ฟ"
@@ -169,7 +169,7 @@ export default function WeddingPage() {
     { label: copy[lang].nav.countdown, id: "countdown" },
     { label: copy[lang].nav.story, id: "story" },
     { label: copy[lang].nav.program, id: "program" },
-    { label: copy[lang].nav.gallery, id: "gallery" },
+    // { label: copy[lang].nav.gallery, id: "gallery" },
     { label: copy[lang].nav.location, id: "location" }
   ];  
 
