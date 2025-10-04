@@ -140,7 +140,7 @@ export default function WeddingPage() {
         subtitle2:"การแต่งกาย", 
         subtitle3:"ที่จอดรถ", 
         subContext1:"", 
-        subContext2:"ห้อง Le Grand Ballroom ชั้น 7 โงแรมโซฟิเทล กรุงเทพ สุขุมวิท", 
+        subContext2:"ห้อง Le Grand Ballroom ชั้น 7 โรงแรมโซฟิเทล กรุงเทพ สุขุมวิท", 
         subContext3:"แนะนำโทนพาสเทลอ่อนและเฉดธรรมชาติ เพื่อความกลมกลืนของงาน", 
         subContext4:"ที่จอดรถบริการฟรีภายในโรงแรม", 
       },
