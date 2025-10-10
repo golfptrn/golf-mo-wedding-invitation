@@ -70,7 +70,8 @@ export default function WeddingPage() {
       countdown: {heading: `Until We Say "I Do"`, context: "We can't wait to celebrate with you!"},
       units: { days: "Days", hours: "Hours", minutes: "Minutes", seconds: "Seconds" },
       story: {heading: "OUR LOVE STORY", hashtag: "#Reading Into Love", 
-        context: "Reading was rain and library light. We were only classmates then—sharing notes, splitting late nights, learning each other’s pace. Months later, New Year’s Eve pulled us to London. Under Big Ben and a sky torn open by fireworks, we finally spoke without deadlines: life, old hopes, the brave idea of love. By midnight the city was a roar, and quietly, between us, something began."
+        context: "We met in Reading, United Kingdom, while pursuing our Master’s degrees in Finance and Financial Technology. What began as teamwork in class slowly grew into friendship — and then something more. On New Year’s Eve in London, beneath the fireworks at Big Ben, our story truly began."
+        // context: "Reading was rain and library light. We were only classmates then—sharing notes, splitting late nights, learning each other’s pace. Months later, New Year’s Eve pulled us to London. Under Big Ben and a sky torn open by fireworks, we finally spoke without deadlines: life, old hopes, the brave idea of love. By midnight the city was a roar, and quietly, between us, something began."
       },
       program: {heading: "Program", 
         program1: "Reception Opens",
@@ -125,7 +126,7 @@ export default function WeddingPage() {
       countdown: { heading: "นับถอยหลังสู่วันแต่งงาน", context: "แล้วพบกันในวันพิเศษของเรานะคะ/ครับ"},
       units: { days: "วัน", hours: "ชั่วโมง", minutes: "นาที", seconds: "วินาที" },
       story: {heading: "เรื่องราวความรักของเรา",  hashtag: "#Reading Into Love", 
-        context: "จากเพื่อนร่วมชั้น สู่คู่ชีวิต เรื่องราวทั้งหมดเริ่มต้นขึ้นหลังจากพวกเราไปดูพลุในคืนปีใหม่ที่ลอนดอน ระหว่างรอดูพลุ เราได้ใช้ช่วงเวลาหลายชั่วโมงระหว่างรอเที่ยงคืนมาถึงคุยกันถึงเรื่องราวต่างๆในชีวิต และเมื่อถึงเวลาพลุดังมาถึง ตอนที่คนทั้งเมืองตะโกนเฮ สำหรับเรานี้เป็นช่วงเวลาที่เป็นจุดเริ่มต้นเรื่องราวของเรา..."
+        context: "เราพบกันที่เมืองเรดดิ้ง ประเทศอังกฤษ ขณะศึกษาปริญญาโทด้านการเงินและเทคโนโลยีทางการเงิน จากเพื่อนร่วมชั้นและเพื่อนร่วมทีม ความสัมพันธ์ค่อย ๆ เติบโตขึ้นทีละน้อย จนถึงคืนวันปีใหม่ที่ลอนดอน ใต้แสงพลุที่บิ๊กเบน เรื่องราวของเราก็ได้เริ่มต้นขึ้นอย่างแท้จริง"
       },
       program: {heading: "กำหนดการ",
         program1: "เริ่มงานเลี้ยงต้อนรับ",
