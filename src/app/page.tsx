@@ -78,7 +78,7 @@ export default function WeddingPage() {
       program: {heading: "Program", 
         program1: "Reception Opens",
         program2: "Group Photos",
-        program3: "Celebration: International Buffet Lunch (served at tables)",
+        program3: "Celebration: International Buffet Lunch",
         program4: "End of Celebration"
       },
       reception: {heading: "Reception", 
@@ -691,9 +691,9 @@ export default function WeddingPage() {
             </h2>
             <ul className="mt-6">
               {[
-                { time: "10:30 AM", title: copy[lang].program.program1 },
+                { time: "11:00 AM", title: copy[lang].program.program1 },
                 { time: "11:30 AM", title: copy[lang].program.program2 },
-                { time: "12:20 PM", title: copy[lang].program.program3 },
+                { time: "12:00 PM", title: copy[lang].program.program3 },
                 { time: "2:00 PM", title: copy[lang].program.program4 }
               ].map((item, i) => (
                 <li
